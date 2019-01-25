@@ -6,7 +6,8 @@ const Run = require('../models/run');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+    res.render('index', { title: 'Express' });
+
 });
 
 /*Create a new user*/
@@ -33,6 +34,13 @@ router.get('/addRun', function(req, res, next) {
     const run = new Run(data);
     db.addRun(run);
     res.end();
+});
+
+/*Transition run to in progress*/
+router.get('/transitionInProgress', function(req,res,next){
+    const runId = req.query.runId ? req.query.runId: '';
+    db.addIPRun(runId);
+    res.end()
 });
 
 /*Edit a user*/

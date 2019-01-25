@@ -1,7 +1,7 @@
 const dateTime = require('get-date');
 const uniqid = require('uniqid');
 
-module.exports = class users {
+module.exports = class run {
 
     /* Create a run */
     constructor(data){
@@ -10,8 +10,7 @@ module.exports = class users {
         this.privacy = data.privacy;
         this.destination = data.destination;
         this.timeCreated = dateTime();
-        this.slots = this.genSlots();
-        console.log(this.serialize())
+        this.slotsLeft = data.numSlots;
     }
 
     genSlots(){
@@ -30,7 +29,7 @@ module.exports = class users {
             privacy: this.privacy,
             destination: this.destination,
             timeCreated: this.timeCreated,
-            slots: this.slots
+            slotsLeft: this.slotsLeft
         }
     }
 
