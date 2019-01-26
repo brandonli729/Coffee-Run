@@ -1,13 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b7447291-aac9-45f8-a503-15ca3ff4458e" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/database.js" beforeDir="false" afterPath="$PROJECT_DIR$/models/database.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/run.js" beforeDir="false" afterPath="$PROJECT_DIR$/models/run.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/slots.js" beforeDir="false" afterPath="$PROJECT_DIR$/models/slots.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/index.js" afterDir="false" />
-    </list>
+    <list default="true" id="b7447291-aac9-45f8-a503-15ca3ff4458e" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -189,7 +183,7 @@
     </findStrings>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -293,12 +287,12 @@
       <workItem from="1547791104699" duration="316000" />
       <workItem from="1547791743870" duration="5146000" />
       <workItem from="1548187629960" duration="1386000" />
-      <workItem from="1548445780284" duration="3265000" />
+      <workItem from="1548445780284" duration="3492000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="29175000" />
+    <option name="totallyTimeSpent" value="29402000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="60" y="23" width="1270" height="826" extended-state="0" />
