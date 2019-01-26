@@ -1,4 +1,5 @@
 const db = require('firebase-admin').database();
+const slots = require('./slots.js')
 const path = require('path');
 
 module.exports = class database {
@@ -11,7 +12,7 @@ module.exports = class database {
 
     /*Add a run to the database*/
     static addRun(run){
-        let ref = db.ref(path.join('activeRuns',run.runId));
+        let ref = db.ref(path.join('dockedRuns',run.runId));
         ref.set(run.serialize());
         ref = db.ref(path.join('allRuns',run.runId));
         ref.set(run.serialize());
@@ -19,11 +20,10 @@ module.exports = class database {
 
     /*Add a run to the being done database*/
     static addIPRun(run){
-        const ref = db.ref(path.join('allRuns', run));
+        const ref = db.ref(path.join('dockedRuns', run));
         //ref.child('zc06s147jr27sne3').remove();
         ref.once('value').then(function(snapshot){
-            console.log(snapshot.val());
-            db.ref(path.join('inProgressRuns')).set(path.join(run,snapshot.val()));
+            db.ref(path.join('inProgressRuns', run)).set(snapshot.val());
             ref.remove();
         });
     }
@@ -43,6 +43,26 @@ module.exports = class database {
         ref.once('value').then(function (snapshot) {
             if (snapshot.hasChild(data.runId))
             callback(!!snapshot.val() ? snapshot.val() : {});
+        });
+    }
+
+    static claimSpot(run,data){
+        const ref = db.ref(path.join('dockedRuns',run,'slots'))
+        const numRef = db.ref(path.join('dockedRuns',run,'slotsLeft'))
+        const checkRef = db.ref(path.join('dockedRuns', run))
+        checkRef.once('value').then(function (snapshot){
+            console.log(checkRef, 'ref')
+            console.log(snapshot.val(), 'logged')
+            const slotIndex = snapshot.val().numSlots - snapshot.val().slotsLeft;
+            if (snapshot.val().slotsLeft==1){
+                ref.child(slotIndex).set(new slots(data).serialize());
+                checkRef.child('slotsLeft').set(snapshot.val().slotsLeft-1);
+                database.addIPRun(run)
+            }
+            else{
+                ref.child(slotIndex).set(new slots(data).serialize());
+                checkRef.child('slotsLeft').set(snapshot.val().slotsLeft-1);
+            }
         });
     }
 

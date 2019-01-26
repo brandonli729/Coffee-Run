@@ -11,6 +11,7 @@ module.exports = class run {
         this.destination = data.destination;
         this.timeCreated = dateTime();
         this.slotsLeft = data.numSlots;
+
     }
 
     genSlots(){
@@ -18,6 +19,7 @@ module.exports = class run {
         for(let i = 1; i <= this.numSlots; i++){
             blankJson[i] = 0;
         }
+        console.log(blankJson)
         return blankJson;
     }
 
