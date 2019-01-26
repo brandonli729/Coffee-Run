@@ -36,13 +36,6 @@ router.get('/addRun', function(req, res, next) {
     res.end();
 });
 
-/*Transition run to in progress*/
-router.get('/transitionInProgress', function(req,res,next){
-    const runId = req.query.runId ? req.query.runId: '';
-    db.addIPRun(runId);
-    res.end()
-});
-
 router.get('/claimSpot', function (req,res,next){
     const runId = req.query.runId ? req.query.runId: '';
     const userId = req.query.userId ? req.query.userId: '';
