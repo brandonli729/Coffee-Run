@@ -6,7 +6,8 @@ const Run = require('../models/run');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+    res.render('index', { title: 'Express' });
+
 });
 
 /*Create a new user*/
@@ -35,6 +36,17 @@ router.get('/addRun', function(req, res, next) {
     res.end();
 });
 
+router.get('/claimSpot', function (req,res,next){
+    const runId = req.query.runId ? req.query.runId: '';
+    const userId = req.query.userId ? req.query.userId: '';
+    const items = req.query.items ? req.query.items: '';
+
+    data = {runId:runId,userId:userId,items:items}
+
+    db.claimSpot(runId,data)
+    res.end()
+});
+
 /*Edit a user*/
 router.get('/editUser', function (req, res, next) {
     const userId = req.query.userId ? req.query.userId: '';
@@ -47,6 +59,13 @@ router.get('/editUser', function (req, res, next) {
     //console.log(data.toChange);
     db.editUser(data);
     res.end();
+});
+
+/*Get all of the curr Runs*/
+router.get('/getDocked', function(req, res, next){
+    db.getDocked(function(docked){
+        res.send(docked)
+    });
 });
 
 
