@@ -9,10 +9,12 @@ import com.codename1.components.ScaleImageLabel;
 import com.codename1.components.SpanButton;
 import com.codename1.components.SpanLabel;
 import com.codename1.ui.*;
+import com.codename1.ui.events.ActionEvent;
 import com.codename1.ui.events.ActionListener;
 import com.codename1.ui.layouts.BorderLayout;
 import com.codename1.ui.layouts.mig.LC;
 import com.codename1.ui.layouts.mig.MigLayout;
+import com.codename1.ui.plaf.Style;
 import com.codename1.ui.plaf.UIManager;
 import com.codename1.ui.table.TableLayout;
 import com.codename1.ui.util.Resources;
@@ -25,7 +27,7 @@ import com.mycompany.cofferun.CoffeeRun;
 
 public class UberEats {
     private Image defaultpic;
-    private Form current;
+    private Form current,whole;
     private Resources theme;
     private Label img;
 
@@ -58,7 +60,7 @@ public class UberEats {
             return;
         }
 
-        Form whole = new Form("Coffee with Friends", new BorderLayout());
+        whole = new Form("Coffee with Friends", new BorderLayout());
         Tabs tb = new Tabs(){
             protected Component createTab(String title, Image icon) {
                 SpanButton custom = new SpanButton(title);
@@ -83,7 +85,11 @@ public class UberEats {
             }
         };
 
+
+
+
         tb.setTabUIID(null);
+        whole.add(BorderLayout.CENTER, tb);
         CoffeeRun coffeerun = new CoffeeRun();
         www.hales.iscool.chat ayy = new www.hales.iscool.chat();
         Form LOL = ayy.LogInForm();
@@ -92,12 +98,12 @@ public class UberEats {
         tb.addTab("Tab 1", FontImage.MATERIAL_ACCESSIBILITY, 4, profileForm());
         tb.addTab("Tab 3", FontImage.MATERIAL_ACCESS_ALARM, 4,pleasework);
 
-
         tb.getTabsContainer().setScrollableX(false);
 
-        whole.add(BorderLayout.CENTER, tb);
+
         whole.show();
     }
+
 
     public Form profileForm()
     {
@@ -133,6 +139,32 @@ public class UberEats {
         information.add(secondhalf.createConstraint().widthPercentage(50).heightPercentage(20).horizontalAlign(Component.RIGHT),new Label("Dorm:"));
         information.add(secondhalf.createConstraint().horizontalAlign(Component.LEFT), new Label("Robbins"));
 
+        Style stitle = hi.getToolbar().getTitleComponent().getUnselectedStyle();
+        hi.getToolbar().hideToolbar();
+        Style s = UIManager.getInstance().getComponentStyle("TitleCommand");
+        FontImage edit = FontImage.createMaterial(FontImage.MATERIAL_CREATE, s);
+        Toolbar tool = new Toolbar(true);
+
+        hi.setToolbar(tool);
+
+        Form editform = new Form("Edit Profile",BoxLayout.y());
+
+
+
+
+        Image im = FontImage.createMaterial(FontImage.MATERIAL_MODE_EDIT, UIManager.getInstance().getComponentStyle("Command"));
+        Command editcommand = new Command("Edit", im) {
+
+            @Override
+            public void actionPerformed(ActionEvent evt) {
+                System.out.println("Editing");
+                editform.show();
+                setBackCommand(editform);
+            }
+        };
+
+        tool.addCommandToRightBar("Edit Profile",edit,editcommand);
+
 
 
         hi.add(wholelayout.createConstraint().heightPercentage(60),picname);
@@ -150,6 +182,22 @@ public class UberEats {
     }
     
     public void destroy() {
+    }
+
+    protected void setBackCommand(Form f) {
+        Command back = new Command("") {
+
+            @Override
+            public void actionPerformed(ActionEvent evt) {
+                whole.showBack();
+            }
+
+        };
+        Image img = FontImage.createMaterial(FontImage.MATERIAL_ARROW_BACK, UIManager.getInstance().getComponentStyle("TitleCommand"));
+        back.setIcon(img);
+        f.getToolbar().addCommandToLeftBar(back);
+        f.getToolbar().setTitleCentered(true);
+        f.setBackCommand(back);
     }
 
 }
