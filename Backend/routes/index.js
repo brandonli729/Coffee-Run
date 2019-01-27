@@ -61,6 +61,13 @@ router.get('/editUser', function (req, res, next) {
     res.end();
 });
 
+/*Get all of the curr Runs*/
+router.get('/getDocked', function(req, res, next){
+    db.getDocked(function(docked){
+        res.send(docked)
+    });
+});
+
 
 
 module.exports = router;

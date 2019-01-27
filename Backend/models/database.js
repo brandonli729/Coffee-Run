@@ -1,5 +1,5 @@
 const db = require('firebase-admin').database();
-const slots = require('./slots.js')
+const slots = require('./slots.js');
 const path = require('path');
 
 module.exports = class database {
@@ -51,8 +51,6 @@ module.exports = class database {
         const numRef = db.ref(path.join('dockedRuns',run,'slotsLeft'))
         const checkRef = db.ref(path.join('dockedRuns', run))
         checkRef.once('value').then(function (snapshot){
-            console.log(checkRef, 'ref')
-            console.log(snapshot.val(), 'logged')
             const slotIndex = snapshot.val().numSlots - snapshot.val().slotsLeft;
             if (snapshot.val().slotsLeft==1){
                 ref.child(slotIndex).set(new slots(data).serialize());
@@ -64,6 +62,18 @@ module.exports = class database {
                 checkRef.child('slotsLeft').set(snapshot.val().slotsLeft-1);
             }
         });
+    }
+
+    static getDocked(callback){
+        const ref = db.ref('dockedRuns');
+        ref.once('value').then(function (snapshot){
+            const dockedRuns = {};
+            snapshot.forEach(function (childSnapshot) {
+                let runId = childSnapshot.val().runId;
+                dockedRuns[runId] = childSnapshot.val();
+            });
+            callback(dockedRuns)
+        })
     }
 
 };
