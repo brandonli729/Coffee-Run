@@ -102,10 +102,10 @@ public class UberEats {
         Form asiaform = new www.hales.iscool.SplashScreen();
 
         tb.addTab("Splashscreen",FontImage.MATERIAL_WALLPAPER,4,asiaform);
-        tb.addTab(" tab", FontImage.MATERIAL_LOCK, 4, LOL);
-        tb.addTab("Tab 2", FontImage.MATERIAL_HOME,4,letsdothis);
-        tb.addTab("Tab 1", FontImage.MATERIAL_ACCESSIBILITY, 4, profileForm());
-        tb.addTab("Tab 3", FontImage.MATERIAL_SHOPPING_CART, 4,pleasework);
+        tb.addTab("Log-In", FontImage.MATERIAL_LOCK, 4, LOL);
+        tb.addTab("Home", FontImage.MATERIAL_HOME,4,letsdothis);
+        tb.addTab("User Profile", FontImage.MATERIAL_ACCESSIBILITY, 4, profileForm());
+        tb.addTab("Make a Run", FontImage.MATERIAL_SHOPPING_CART, 4,pleasework);
 
         tb.getTabsContainer().setScrollableX(false);
 
@@ -156,7 +156,45 @@ public class UberEats {
 
         hi.setToolbar(tool);
 
+        Button editimagebutton = new Button("Change Profile Picture");
+        editimagebutton.addActionListener(new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent evt) {
+
+
+
+                System.out.println("Editing Image");
+            }
+        });
+
         Form editform = new Form("Edit Profile",BoxLayout.y());
+        TableLayout editlayout = new TableLayout(10,1);
+        editlayout.setGrowHorizontally(true);
+
+        editform.add(new ScaleImageLabel(defaultpic));
+        editform.add(editimagebutton);
+        Container infocont = new Container(editlayout);
+
+
+        TextField nametext = new TextField("", "Name", 20, TextArea.ANY);
+        TextField biotext = new TextField("", "Biography", 40, TextArea.ANY);
+        TextField dormtext = new TextField("", "Dorm", 20, TextArea.ANY);
+        TextField gradetext = new TextField("", "Grade", 20, TextArea.ANY);
+        TextField sextext = new TextField("", "Sex", 20, TextArea.ANY);
+
+        Button savebutton = new Button("Save Changes");
+        TableLayout.Constraint cn = editlayout.createConstraint();
+        cn.setHorizontalAlign(Component.RIGHT);
+
+        infocont.add("Name").add(nametext).add("Biography").add(biotext)
+                .add("Dorm").add(dormtext).add("Grade").add(gradetext)
+                .add("Sex").add(sextext).add(cn,savebutton);
+
+
+        editform.add(infocont);
+
+
 
 
 
