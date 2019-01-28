@@ -94,9 +94,18 @@ public class UberEats {
         www.hales.iscool.chat ayy = new www.hales.iscool.chat();
         Form LOL = ayy.LogInForm();
         Form pleasework = coffeerun.forgodsake();
-        tb.addTab(" tab", FontImage.MATERIAL_BOOK, 4, LOL);
+
+
+        coffeerunapp2.activities please = new coffeerunapp2.activities();
+        Form letsdothis = please.alyssaform();
+        letsdothis.getToolbar().hideToolbar();
+        Form asiaform = new www.hales.iscool.SplashScreen();
+
+        tb.addTab("Splashscreen",FontImage.MATERIAL_WALLPAPER,4,asiaform);
+        tb.addTab(" tab", FontImage.MATERIAL_LOCK, 4, LOL);
+        tb.addTab("Tab 2", FontImage.MATERIAL_HOME,4,letsdothis);
         tb.addTab("Tab 1", FontImage.MATERIAL_ACCESSIBILITY, 4, profileForm());
-        tb.addTab("Tab 3", FontImage.MATERIAL_ACCESS_ALARM, 4,pleasework);
+        tb.addTab("Tab 3", FontImage.MATERIAL_SHOPPING_CART, 4,pleasework);
 
         tb.getTabsContainer().setScrollableX(false);
 
