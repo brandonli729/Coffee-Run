@@ -17,6 +17,54 @@ import com.codename1.ui.util.Resources;
 import com.codename1.ui.util.UITimer;
 import java.io.IOException;
 import com.codename1.ui.Toolbar;
+import com.codename1.ui.Button;
+import com.codename1.ui.Display;
+import com.codename1.ui.Form;
+import com.codename1.ui.Dialog;
+import com.codename1.ui.Label;
+import com.codename1.ui.Image;
+import com.codename1.ui.layouts.BorderLayout;
+import com.codename1.ui.plaf.UIManager;
+import com.codename1.ui.util.Resources;
+import com.codename1.ui.Toolbar;
+import java.io.IOException;
+
+
+
+
+import com.codename1.io.*;
+import com.codename1.ui.*;
+import com.codename1.ui.layouts.*;
+import com.codename1.ui.plaf.UIManager;
+import com.codename1.ui.util.Resources;
+
+import java.io.ByteArrayInputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.*;
+import java.io.ByteArrayInputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.*;
+
+import com.codename1.xml.Element;
+import com.codename1.xml.XMLParser;
+
+import com.codename1.ui.*;
+import com.codename1.ui.events.ActionEvent;
+import com.codename1.ui.events.ActionListener;
+
+import com.codename1.ui.layouts.GridLayout;
+
+import java.util.ArrayList;
+import java.util.Map;
+
+
+import com.codename1.ui.Container;
+import com.codename1.ui.TextField;
+
+
+import java.util.*;
 
 import com.codename1.ui.*;
 import com.codename1.ui.events.ActionEvent;
@@ -92,17 +140,31 @@ import java.io.IOException;
  */
 public class CoffeeRun {
 
-    public Form current, hi, slotmaker, runmaker, personalizerun;
+    public Form current, hi, slotmaker, chatform, runmaker, personalizerun, moneytransferform;
     private Container mainpanel, runpanel;
-    private Button addrunbutton, confirmslot;
+    private Button addrunbutton, confirmslot, chatstarter, paymoney, transfergo;
     private Resources theme;
     public User user1;
     public int runcounter;
   //  public Button but1, but2, but3, but4, but5, but6, but7, but8, but9, but10;
     public Button slotbuttons[];
-    public TextField slotname, slotcost;
-    public AutoCompleteTextField slotorder;
+    public TextField slotname, slotcost, transferamount;
+    public AutoCompleteTextField slotorder, friendsnames;
     public Map<String, String> items;
+    public ArrayList <Message> mymessages;
+    public int idcounter;
+    public String runID;
+
+
+    //add two images, bubblemeimage and bubbleyouimage
+
+    public Image bubblemeimage, bubbleyouimage;
+    private JSONParser json = new JSONParser();
+
+
+
+
+
     public void init(Object context) {
         theme = UIManager.initFirstTheme("/theme");
 
@@ -175,13 +237,26 @@ public class CoffeeRun {
         hi = new Form( new BorderLayout());
 
         slotbuttons = new Button[10];
+
+        try {
+
+            bubblemeimage = Image.createImage("/bubbleme.png");
+            bubbleyouimage = Image.createImage("/bubbleyou.png");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+
+        mymessages = new ArrayList<Message>();
+
+
         items = new HashMap<String, String>();
 
         user1 = new User ("Lyndsey Mugford", 1);
 
         // slotmaker = new Form("Claim Your Slot", new GridLayout(4,1));
         mainpanel=new Container();
-        mainpanel.setLayout(new GridLayout(1, 1));
+        mainpanel.setLayout(new GridLayout(3, 1));
 
 
         addrunbutton = new Button("Make Run");
@@ -197,6 +272,19 @@ public class CoffeeRun {
 
 
         mainpanel.add(addrunbutton);
+        chatstarter=new Button("Chat");
+        chatstarter.addActionListener(new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent evt) {
+
+
+
+                chat();
+
+                //HERE IS THE WIKIPEDIA
+            }
+        });
 
         addrunbutton.addActionListener(new ActionListener() {
 
@@ -210,6 +298,23 @@ public class CoffeeRun {
                 //HERE IS THE WIKIPEDIA
             }
         });
+
+        paymoney = new Button("Pay your friend");
+        paymoney.addActionListener(new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent evt) {
+
+
+
+                moneytransfer();
+
+                //HERE IS THE WIKIPEDIA
+            }
+        });
+
+        mainpanel.add(paymoney);
+        mainpanel.add(chatstarter);
 
         hi.addComponent(BorderLayout.CENTER, mainpanel);
         return(hi);
@@ -227,6 +332,240 @@ public class CoffeeRun {
     {
         user1.balance=user1.balance+addition;
 
+    }
+
+    protected void setBackCommand(Form f, Form k) {
+        Command back = new Command("") {
+
+            @Override
+            public void actionPerformed(ActionEvent evt) {k.showBack();
+            }
+
+        };
+        Image img = FontImage.createMaterial(FontImage.MATERIAL_ARROW_BACK, UIManager.getInstance().getComponentStyle("TitleCommand"));
+        back.setIcon(img);
+        f.getToolbar().addCommandToLeftBar(back);
+        f.getToolbar().setTitleCentered(true);
+        f.setBackCommand(back);
+    }
+    public void chat()
+    {
+        //download bouncycastle and pubnub libraries
+
+        chatform = new Form("Chat", new BorderLayout());
+        Container chatcontainer = new Container ();
+        chatcontainer.setLayout(new GridLayout(8,1));
+
+
+        TextField mytext = new TextField();
+        mytext.addActionListener(new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent evt) {
+
+                Message currentmessage = new Message (mytext.getText(), true);
+                mytext.clear();
+
+                mymessages.add(currentmessage);
+                Message currentresponse= new Message("Response", false);
+                mymessages.add(currentresponse);
+
+                System.out.println(mymessages.size());
+                chatcontainer.removeAll();
+                for (int j=mymessages.size()-8;j<mymessages.size();j++)
+                {
+                    if (mymessages.size()>j&&j>=0) {
+                        // Label chatlabel = new Label(mymessages.get(j).messagestring);
+
+                        if (mymessages.get(j).messagestring=="Response") {
+                            Label youtextimage = new Label("PIC") {
+                                public void paint(Graphics g) {
+
+
+                                    g.drawImage(bubbleyouimage, this.getX(), this.getY(), this.getWidth(), this.getHeight());
+                                    g.setColor(000000);
+                                    g.drawString("Response", getX(), getY());
+
+                                }
+                            };
+                            chatcontainer.addComponent(youtextimage);
+                        }
+
+                        else {
+                            int k = j;
+
+                            Label textimage = new Label("PIC") {
+                                public void paint(Graphics g) {
+
+
+                                    g.drawImage(bubblemeimage, this.getX(), this.getY(), this.getWidth(), this.getHeight());
+                                    g.setColor(000000);
+                                    g.drawString(mymessages.get(k).messagestring, getX(), getY());
+
+                                }
+                            };
+
+                            chatcontainer.addComponent(textimage);
+                        }
+
+
+                    }
+                    else
+                    {
+                        //System.out.println("j is:"+j);
+                    }
+
+
+                }
+
+            }
+        });
+
+        chatform.addComponent (BorderLayout.SOUTH,mytext);
+        chatform.addComponent (BorderLayout.CENTER,chatcontainer);
+        setBackCommand(chatform, hi);
+
+        chatform.show();
+
+
+    }//end of chat method
+
+    public void ReadJsonAddRun(String inputUrl, int slotcount, boolean privacyj, String destinationj) {
+        ConnectionRequest req=new ConnectionRequest();
+        System.out.println(destinationj);
+        System.out.println(privacyj);
+        String newinput = inputUrl+"?numSlots="+slotcount+"&privacy="+privacyj+"&destination="+destinationj;
+        System.out.println(newinput);
+
+        req.setUrl(newinput);
+
+        req.setPost(false);
+        // req.addRequestHeader("numSlots","4");
+        //req.addRequestHeader("privacy", "false");
+        // req.addRequestHeader("destination","Starbucks");
+        //string key, string value?
+        req.setHttpMethod("GET");
+        NetworkManager.getInstance().addToQueueAndWait(req);
+        JSONParser parser=new JSONParser();
+        try {
+            Hashtable result =parser.parse(new InputStreamReader(new ByteArrayInputStream(req.getResponseData())));
+            System.out.println("test"+result);
+            System.out.println(parser.parseJSON(new InputStreamReader(new ByteArrayInputStream(req.getResponseData()))));
+            Map response=parser.parseJSON(new InputStreamReader(new ByteArrayInputStream(req.getResponseData())));
+            System.out.println( "hope"+response.get("result"));
+
+
+            LinkedHashMap allItems = new LinkedHashMap();
+            allItems=(LinkedHashMap)response.get("result");
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        //return (null);
+    }
+    public void ReadJsonClaimSlot(String inputUrl, String runidj, String useridj, String items) {
+        ConnectionRequest req=new ConnectionRequest();
+
+        String newinput = inputUrl+"?runID="+runidj+"&userID="+useridj+"&items="+items;
+        System.out.println(newinput);
+
+        req.setUrl(newinput);
+
+        req.setPost(false);
+        // req.addRequestHeader("numSlots","4");
+        //req.addRequestHeader("privacy", "false");
+        // req.addRequestHeader("destination","Starbucks");
+        //string key, string value?
+        req.setHttpMethod("GET");
+        NetworkManager.getInstance().addToQueueAndWait(req);
+        JSONParser parser=new JSONParser();
+        try {
+            Hashtable result =parser.parse(new InputStreamReader(new ByteArrayInputStream(req.getResponseData())));
+            System.out.println("test"+result);
+            System.out.println(parser.parseJSON(new InputStreamReader(new ByteArrayInputStream(req.getResponseData()))));
+            Map response=parser.parseJSON(new InputStreamReader(new ByteArrayInputStream(req.getResponseData())));
+            System.out.println( "hope"+response.get("result"));
+
+
+            LinkedHashMap allItems = new LinkedHashMap();
+            allItems=(LinkedHashMap)response.get("result");
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        //return (null);
+    }
+    public void ReadJsonGetRuns(String inputUrl) {
+        ConnectionRequest req=new ConnectionRequest();
+
+        req.setUrl(inputUrl);
+
+        req.setPost(false);
+
+        //string key, string value?
+        req.setHttpMethod("GET");
+        NetworkManager.getInstance().addToQueueAndWait(req);
+        JSONParser parser=new JSONParser();
+        try {
+            Hashtable result =parser.parse(new InputStreamReader(new ByteArrayInputStream(req.getResponseData())));
+            System.out.println("test"+result);
+            System.out.println(parser.parseJSON(new InputStreamReader(new ByteArrayInputStream(req.getResponseData()))));
+            Map response= parser.parseJSON(new InputStreamReader(new ByteArrayInputStream(req.getResponseData())));
+            System.out.println("!!!!!!!"+response.get("112wg7njrfec0n5"));
+            runID="112wg7njrfec0n5";
+
+
+            //   ArrayList <String> myarraylist = new ArrayList<String>();
+
+            //   for (int x=0;x<response.size();x++)
+            //  {
+            //      myarraylist.add(response)
+            //  }
+
+            //  for ( key : response.keySet()){
+
+
+
+            //    }
+
+            Map <String, Object> allItems = (Map<String, Object>) response;
+            System.out.println(allItems.get("runId"));
+
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        //return (null);
+    }
+
+    public void moneytransfer()
+    {
+        moneytransferform = new Form("Transfer Money", new GridLayout(3,1));
+        friendsnames=new AutoCompleteTextField("Bob", "Jill", "Joe");
+        transfergo=new Button("make transfer");
+        transferamount=new TextField("transfer amount");
+        moneytransferform.addComponent(friendsnames);
+        moneytransferform.addComponent(transferamount);
+        moneytransferform.addComponent(transfergo);
+
+        setBackCommand(moneytransferform, hi);
+
+        moneytransferform.show();
+
+
+        transfergo.addActionListener(new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent evt) {
+
+                double transferdouble = Double.valueOf(transferamount.getText());
+
+                addtobalance(transferdouble, 1);
+
+
+                //HERE IS THE WIKIPEDIA
+            }
+        });
     }
 
     public void makearun()
@@ -320,9 +659,11 @@ public class CoffeeRun {
 
                 System.out.println("current run slots: " +currentrun.slots);
 
-
+                ReadJsonAddRun("https://crippin-coffee.herokuapp.com/addRun",slotsize,false,currentrun.restaurant);
+                ReadJsonGetRuns("https://crippin-coffee.herokuapp.com/getDocked");
                Makerunmaker(currentrun);
                 runmaker.show();
+                setBackCommand(runmaker,personalizerun);
 
             }
 
@@ -330,6 +671,8 @@ public class CoffeeRun {
 
 
         personalizerun.show();
+        setBackCommand(personalizerun, hi);
+
 
     }
 
@@ -340,9 +683,8 @@ public class CoffeeRun {
         for(int s=0; s<currentrun.slotlist.size(); s++)
         {
 
-            System.out.println("????"+currentrun.slotlist.size());
             slotbuttons[s] = new Button(currentrun.slotlist.get(s).name);
-            System.out.println(slotbuttons.length);
+
 
         }
 
@@ -366,7 +708,7 @@ public class CoffeeRun {
             @Override
             public void actionPerformed(ActionEvent evt) {
                 PersonalizeSlot(jj, currentrun);
-                System.out.println("hit 0");
+              //  System.out.println("hit 0");
             }
 
         });
@@ -459,12 +801,13 @@ public class CoffeeRun {
 
 
 
-                System.out.println("J is: " + j);
+              //  System.out.println("J is: " + j);
                 System.out.println(slotcost.getText());
                 double costj = Double.valueOf(slotcost.getText());
                 currentrun.slotlist.get(j).name=slotname.getText();
                 currentrun.slotlist.get(j).order=slotorder.getText();
                 currentrun.slotlist.get(j).cost=costj;
+                ReadJsonClaimSlot("https://crippin-coffee.herokuapp.com/claimSpot",runID,"000000",currentrun.slotlist.get(j).order);
                 System.out.println("set stuff");
                // System.out.println(currentrun.slotlist.size());
                 //String displaystring = ""+currentrun.slotlist.get((j)).name + ", " + currentrun.slotlist.get((j)).order + ": "+currentrun.slotlist.get((j)).cost;
@@ -474,7 +817,7 @@ public class CoffeeRun {
                 Makerunmaker(currentrun);
                 for (int k=0;k<currentrun.slotlist.size();k++)
                 {
-                    System.out.print(currentrun.slotlist.get(k).name);
+                    //System.out.print(currentrun.slotlist.get(k).name);
                 }
                 System.out.println("");
                 //slotname.setText("name");
