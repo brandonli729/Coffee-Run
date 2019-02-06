@@ -8,6 +8,7 @@ import com.codename1.components.ScaleImageButton;
 import com.codename1.components.ScaleImageLabel;
 import com.codename1.components.SpanButton;
 import com.codename1.components.SpanLabel;
+import com.codename1.io.*;
 import com.codename1.ui.*;
 import com.codename1.ui.events.ActionEvent;
 import com.codename1.ui.events.ActionListener;
@@ -18,11 +19,15 @@ import com.codename1.ui.plaf.Style;
 import com.codename1.ui.plaf.UIManager;
 import com.codename1.ui.table.TableLayout;
 import com.codename1.ui.util.Resources;
-import com.codename1.io.Log;
 
+import java.io.ByteArrayInputStream;
 import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.Hashtable;
+import java.util.LinkedHashMap;
+import java.util.Map;
+
 import com.codename1.ui.layouts.BoxLayout;
-import com.codename1.io.NetworkEvent;
 import com.mycompany.cofferun.CoffeeRun;
 
 public class UberEats {
@@ -39,7 +44,6 @@ public class UberEats {
 
         // Enable Toolbar on all Forms by default
         Toolbar.setGlobalToolbar(true);
-
         // Pro only feature
         Log.bindCrashProtection(true);
 
@@ -131,22 +135,31 @@ public class UberEats {
         TableLayout firsthalf = new TableLayout(2,1);
         Container information = new Container(secondhalf);
 
+
+        String userbio = new String("I never dreamed about success - I worked for it.");
+        String usergrade = new String("Senior");
+        String userfirstname = new String("Asia");
+        String userdorm = new String("Robbins");
+        String userlastname = new String("Chung");
+        String usersex = new String("Female");
+
         Container picname = new Container(firsthalf);
         picname.add(firsthalf.createConstraint().heightPercentage(50),new ScaleImageLabel(defaultpic));
-        picname.add(firsthalf.createConstraint().horizontalAlign(Component.CENTER).heightPercentage(10),new Label("Asia Chung"));
+        picname.add(firsthalf.createConstraint().horizontalAlign(Component.CENTER).heightPercentage(10),new Label(userfirstname+" "+userlastname));
 
-        SpanLabel l = new SpanLabel("I never dreamed about success - I worked for it.");
+
+        SpanLabel l = new SpanLabel(userbio);
         l.setTextBlockAlign(Component.CENTER);
         picname.add(firsthalf.createConstraint().widthPercentage(100).heightPercentage(15).horizontalAlign(CENTER), l);
 
         information.add(secondhalf.createConstraint().widthPercentage(50).heightPercentage(20).horizontalAlign(Component.RIGHT), new Label("Grade:"));
-        information.add(secondhalf.createConstraint().widthPercentage(50).horizontalAlign(Component.LEFT),new Label("Senior"));
+        information.add(secondhalf.createConstraint().widthPercentage(50).horizontalAlign(Component.LEFT),new Label(usergrade));
 
         information.add(secondhalf.createConstraint().widthPercentage(50).heightPercentage(20).horizontalAlign(Component.RIGHT), new Label("Sex:"));
-        information.add(secondhalf.createConstraint().horizontalAlign(Component.LEFT), new Label("Female"));
+        information.add(secondhalf.createConstraint().horizontalAlign(Component.LEFT), new Label(usersex));
 
         information.add(secondhalf.createConstraint().widthPercentage(50).heightPercentage(20).horizontalAlign(Component.RIGHT),new Label("Dorm:"));
-        information.add(secondhalf.createConstraint().horizontalAlign(Component.LEFT), new Label("Robbins"));
+        information.add(secondhalf.createConstraint().horizontalAlign(Component.LEFT), new Label(userdorm));
 
         Style stitle = hi.getToolbar().getTitleComponent().getUnselectedStyle();
         hi.getToolbar().hideToolbar();
@@ -245,6 +258,37 @@ public class UberEats {
         f.getToolbar().addCommandToLeftBar(back);
         f.getToolbar().setTitleCentered(true);
         f.setBackCommand(back);
+    }
+
+    public void ReadJsonEditProfile(String inputUrl, String userid, String firstname, String lastname, String bio, String grade, String sex, String dorm) {
+        ConnectionRequest req=new ConnectionRequest();
+        String newinput = inputUrl+"?userId="+userid+"&userFirst="+firstname+"&userLast="+lastname+"&bio="+bio+"&grade="+grade+"&sex="+sex+"&dorm="+dorm;
+
+        req.setUrl(newinput);
+
+        req.setPost(false);
+        // req.addRequestHeader("numSlots","4");
+        //req.addRequestHeader("privacy", "false");
+        // req.addRequestHeader("destination","Starbucks");
+        //string key, string value?
+        req.setHttpMethod("GET");
+        NetworkManager.getInstance().addToQueueAndWait(req);
+        JSONParser parser=new JSONParser();
+        try {
+            Hashtable result =parser.parse(new InputStreamReader(new ByteArrayInputStream(req.getResponseData())));
+            System.out.println("test"+result);
+            System.out.println(parser.parseJSON(new InputStreamReader(new ByteArrayInputStream(req.getResponseData()))));
+            Map response=parser.parseJSON(new InputStreamReader(new ByteArrayInputStream(req.getResponseData())));
+            System.out.println( "hope"+response.get("result"));
+
+
+            LinkedHashMap allItems = new LinkedHashMap();
+            allItems=(LinkedHashMap)response.get("result");
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        //return (null);
     }
 
 }
