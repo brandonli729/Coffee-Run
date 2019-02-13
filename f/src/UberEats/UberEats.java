@@ -23,9 +23,7 @@ import com.codename1.ui.util.Resources;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.Hashtable;
-import java.util.LinkedHashMap;
-import java.util.Map;
+import java.util.*;
 
 import com.codename1.ui.layouts.BoxLayout;
 import com.mycompany.cofferun.CoffeeRun;
@@ -191,12 +189,28 @@ public class UberEats {
 
 
         TextField nametext = new TextField("", "Name", 20, TextArea.ANY);
+
         TextField biotext = new TextField("", "Biography", 40, TextArea.ANY);
         TextField dormtext = new TextField("", "Dorm", 20, TextArea.ANY);
         TextField gradetext = new TextField("", "Grade", 20, TextArea.ANY);
         TextField sextext = new TextField("", "Sex", 20, TextArea.ANY);
 
         Button savebutton = new Button("Save Changes");
+        savebutton.addActionListener(new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent evt) {
+                System.out.println("Save Profile");
+                ArrayList<String> namestring = new ArrayList<String>();
+                StringTokenizer tokenizer = new StringTokenizer(nametext.getText());
+                while(tokenizer.hasMoreTokens()) {
+                    namestring.add(tokenizer.nextToken());
+
+                }
+                System.out.println("First Name:"+namestring.get(0));
+                ReadJsonEditProfile("https://crippin-coffee.herokuapp.com/editUser","zankner",namestring.get(0),namestring.get(1),biotext.getText(),gradetext.getText(),sextext.getText(),dormtext.getText());
+            }
+        });
         TableLayout.Constraint cn = editlayout.createConstraint();
         cn.setHorizontalAlign(Component.RIGHT);
 
@@ -206,10 +220,6 @@ public class UberEats {
 
 
         editform.add(infocont);
-
-
-
-
 
 
         Image im = FontImage.createMaterial(FontImage.MATERIAL_MODE_EDIT, UIManager.getInstance().getComponentStyle("Command"));
