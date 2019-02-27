@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="cc68a16b-bb91-4355-8869-064b2e383e1d" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/UberEats/UberEats.java" afterPath="$PROJECT_DIR$/src/UberEats/UberEats.java" />
-    </list>
+    <list default="true" id="cc68a16b-bb91-4355-8869-064b2e383e1d" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -17,8 +15,8 @@
       <file leaf-file-name="UberEats.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/UberEats/UberEats.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="268">
-              <caret line="220" column="0" lean-forward="true" selection-start-line="220" selection-start-column="0" selection-end-line="220" selection-end-column="0" />
+            <state relative-caret-position="123">
+              <caret line="204" column="41" lean-forward="true" selection-start-line="204" selection-start-column="41" selection-end-line="204" selection-end-column="41" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#7727#7735#0" expanded="true" />
@@ -30,7 +28,7 @@
       <file leaf-file-name="activities.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/coffeerunapp2/activities.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="352">
+            <state relative-caret-position="6480">
               <caret line="481" column="0" lean-forward="false" selection-start-line="481" selection-start-column="0" selection-end-line="481" selection-end-column="0" />
               <folding>
                 <marker date="1548688965880" expanded="false" signature="3321:3340" ph=" { " />
@@ -55,7 +53,7 @@
       <file leaf-file-name="CoffeeRun.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/mycompany/cofferun/CoffeeRun.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="112">
+            <state relative-caret-position="7935">
               <caret line="661" column="76" lean-forward="false" selection-start-line="661" selection-start-column="31" selection-end-line="661" selection-end-column="76" />
               <folding />
             </state>
@@ -116,7 +114,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="AndroidView" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -157,9 +154,10 @@
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
       <pane id="Scratches" />
       <pane id="Scope" />
+      <pane id="AndroidView" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -314,7 +312,7 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24958949" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2536946" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -337,6 +335,40 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/UberEats/UberEats.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#7727#7735#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/coffeerunapp2/activities.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="6480">
+          <caret line="481" column="0" lean-forward="false" selection-start-line="481" selection-start-column="0" selection-end-line="481" selection-end-column="0" />
+          <folding>
+            <marker date="1548688965880" expanded="false" signature="3321:3340" ph=" { " />
+            <marker date="1548688965880" expanded="false" signature="3352:3366" ph=" }" />
+            <marker date="1548688965880" expanded="false" signature="4714:4733" ph=" { " />
+            <marker date="1548688965880" expanded="false" signature="4745:4759" ph=" }" />
+            <marker date="1548688965880" expanded="false" signature="5956:5975" ph=" { " />
+            <marker date="1548688965880" expanded="false" signature="5987:6001" ph=" }" />
+            <marker date="1548688965880" expanded="false" signature="7179:7198" ph=" { " />
+            <marker date="1548688965880" expanded="false" signature="7210:7224" ph=" }" />
+            <marker date="1548688965880" expanded="false" signature="8799:8818" ph=" { " />
+            <marker date="1548688965880" expanded="false" signature="8829:8843" ph=" }" />
+            <marker date="1548688965880" expanded="false" signature="9980:9999" ph=" { " />
+            <marker date="1548688965880" expanded="false" signature="10058:10072" ph=" }" />
+            <marker date="1548688965880" expanded="false" signature="10321:10340" ph=" { " />
+            <marker date="1548688965880" expanded="false" signature="10356:10370" ph=" }" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/UberEats/UberEats.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -533,7 +565,7 @@
         <state relative-caret-position="-53">
           <caret line="2" column="7" lean-forward="true" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -543,22 +575,14 @@
         <state relative-caret-position="-457">
           <caret line="25" column="28" lean-forward="false" selection-start-line="25" selection-start-column="25" selection-end-line="25" selection-end-column="28" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/mycompany/cofferun/CoffeeRun.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="112">
-          <caret line="661" column="76" lean-forward="false" selection-start-line="661" selection-start-column="31" selection-end-line="661" selection-end-column="76" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/coffeerunapp2/activities.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="352">
+        <state relative-caret-position="6480">
           <caret line="481" column="0" lean-forward="false" selection-start-line="481" selection-start-column="0" selection-end-line="481" selection-end-column="0" />
           <folding>
             <marker date="1548688965880" expanded="false" signature="3321:3340" ph=" { " />
@@ -583,18 +607,25 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="134">
           <caret line="603" column="0" lean-forward="false" selection-start-line="603" selection-start-column="0" selection-end-line="603" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/UberEats/UberEats.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="268">
-          <caret line="220" column="0" lean-forward="true" selection-start-line="220" selection-start-column="0" selection-end-line="220" selection-end-column="0" />
+        <state relative-caret-position="123">
+          <caret line="204" column="41" lean-forward="true" selection-start-line="204" selection-start-column="41" selection-end-line="204" selection-end-column="41" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#7727#7735#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/mycompany/cofferun/CoffeeRun.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="7935">
+          <caret line="661" column="76" lean-forward="false" selection-start-line="661" selection-start-column="31" selection-end-line="661" selection-end-column="76" />
+          <folding />
         </state>
       </provider>
     </entry>
