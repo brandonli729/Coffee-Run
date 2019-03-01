@@ -201,6 +201,8 @@ public class UberEats {
             @Override
             public void actionPerformed(ActionEvent evt) {
                 System.out.println("Save Profile");
+                //SMS ohmygod = new SMS();
+                //ohmygod.sendmessage("+16178428656","Hey there Brandon");
                 ArrayList<String> namestring = new ArrayList<String>();
                 StringTokenizer tokenizer = new StringTokenizer(nametext.getText());
                 while(tokenizer.hasMoreTokens()) {
@@ -208,6 +210,7 @@ public class UberEats {
 
                 }
                 System.out.println("First Name:"+namestring.get(0));
+                System.out.println("Last Name:"+namestring.get(1));
                 ReadJsonEditProfile("https://crippin-coffee.herokuapp.com/editUser","zankner",namestring.get(0),namestring.get(1),biotext.getText(),gradetext.getText(),sextext.getText(),dormtext.getText());
             }
         });
