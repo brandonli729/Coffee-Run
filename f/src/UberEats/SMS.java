@@ -13,14 +13,14 @@ public class SMS {
     String accountSID = "AC1984c5cc8066bda61cd46e7ff4ea398f";
     String authToken = "81a9d96a87f0cbc798a10a173bfca4ce";
     String fromPhone = "+16174053512";
-    String destinationPhone = "+16178428656";
+    String destinationPhone;
     String bodymessage;
 
-    public void sendmessage(String phonenumber,String message){
+    public void sendmessage(String number, String message){
         bodymessage = message;
-        destinationPhone = phonenumber;
+        //destinationPhone = phonenumber;
         Response<Map> result = Rest.post("https://api.twilio.com/2010-04-01/Accounts/" + accountSID + "/Messages.json").
-                queryParam("To", destinationPhone).
+                queryParam("To", number).
                 queryParam("From", fromPhone).
                 queryParam("Body", bodymessage).
                 header("Authorization", "Basic " + Base64.encodeNoNewline((accountSID + ":" + authToken).getBytes())).

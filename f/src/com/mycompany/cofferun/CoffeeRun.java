@@ -299,21 +299,6 @@ public class CoffeeRun {
             }
         });
 
-        paymoney = new Button("Pay your friend");
-        paymoney.addActionListener(new ActionListener() {
-
-            @Override
-            public void actionPerformed(ActionEvent evt) {
-
-
-
-                moneytransfer();
-
-                //HERE IS THE WIKIPEDIA
-            }
-        });
-
-        mainpanel.add(paymoney);
         mainpanel.add(chatstarter);
 
         hi.addComponent(BorderLayout.CENTER, mainpanel);
@@ -538,7 +523,7 @@ public class CoffeeRun {
         //return (null);
     }
 
-    public void moneytransfer()
+    public Form moneytransfer()
     {
         moneytransferform = new Form("Transfer Money", new GridLayout(3,1));
         friendsnames=new AutoCompleteTextField("Bob", "Jill", "Joe");
@@ -566,6 +551,8 @@ public class CoffeeRun {
                 //HERE IS THE WIKIPEDIA
             }
         });
+        return(moneytransferform);
+
     }
 
     public void makearun()

@@ -102,12 +102,14 @@ public class UberEats {
         Form letsdothis = please.alyssaform();
         letsdothis.getToolbar().hideToolbar();
         Form asiaform = new www.hales.iscool.SplashScreen();
+        Form paymentform = coffeerun.moneytransfer();
 
         tb.addTab("Splashscreen",FontImage.MATERIAL_WALLPAPER,4,asiaform);
         tb.addTab("Log-In", FontImage.MATERIAL_LOCK, 4, LOL);
         tb.addTab("Home", FontImage.MATERIAL_HOME,4,letsdothis);
         tb.addTab("User Profile", FontImage.MATERIAL_ACCESSIBILITY, 4, profileForm());
         tb.addTab("Make a Run", FontImage.MATERIAL_SHOPPING_CART, 4,pleasework);
+        tb.addTab("Payment",FontImage.MATERIAL_ATTACH_MONEY,4,paymentform);
 
         tb.getTabsContainer().setScrollableX(false);
 
@@ -201,8 +203,6 @@ public class UberEats {
             @Override
             public void actionPerformed(ActionEvent evt) {
                 System.out.println("Save Profile");
-                //SMS ohmygod = new SMS();
-                //ohmygod.sendmessage("+16178428656","Hey there Brandon");
                 ArrayList<String> namestring = new ArrayList<String>();
                 StringTokenizer tokenizer = new StringTokenizer(nametext.getText());
                 while(tokenizer.hasMoreTokens()) {
