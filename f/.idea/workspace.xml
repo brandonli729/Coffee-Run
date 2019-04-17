@@ -4,6 +4,7 @@
     <list default="true" id="cc68a16b-bb91-4355-8869-064b2e383e1d" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/UberEats/UberEats.java" afterPath="$PROJECT_DIR$/src/UberEats/UberEats.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/mycompany/cofferun/CoffeeRun.java" afterPath="$PROJECT_DIR$/src/com/mycompany/cofferun/CoffeeRun.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -18,11 +19,23 @@
       <file leaf-file-name="UberEats.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/UberEats/UberEats.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="278">
-              <caret line="205" column="51" lean-forward="true" selection-start-line="205" selection-start-column="51" selection-end-line="205" selection-end-column="51" />
+            <state relative-caret-position="352">
+              <caret line="349" column="55" lean-forward="false" selection-start-line="349" selection-start-column="55" selection-end-line="349" selection-end-column="55" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#7968#7976#0" expanded="true" />
+                <element signature="e#9536#9544#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CoffeeRun.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/mycompany/cofferun/CoffeeRun.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="9840">
+              <caret line="788" column="0" lean-forward="false" selection-start-line="788" selection-start-column="0" selection-end-line="788" selection-end-column="0" />
+              <folding>
+                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -31,8 +44,8 @@
       <file leaf-file-name="SMS.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/UberEats/SMS.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="405">
-              <caret line="27" column="5" lean-forward="true" selection-start-line="27" selection-start-column="5" selection-end-line="27" selection-end-column="5" />
+            <state relative-caret-position="300">
+              <caret line="27" column="5" lean-forward="false" selection-start-line="27" selection-start-column="5" selection-end-line="27" selection-end-column="5" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -66,18 +79,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CoffeeRun.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/mycompany/cofferun/CoffeeRun.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="6075">
-              <caret line="537" column="33" lean-forward="false" selection-start-line="537" selection-start-column="33" selection-end-line="537" selection-end-column="33" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
     </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
@@ -104,6 +105,11 @@
       <find>sms</find>
       <find>moneytrans</find>
       <find>sendmessage</find>
+      <find>tabs</find>
+      <find>public form</find>
+      <find>addtobalance</find>
+      <find>nametext</find>
+      <find>readjsoneditprofile</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -147,7 +153,6 @@
     </navigator>
     <panes>
       <pane id="Scratches" />
-      <pane id="AndroidView" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -172,6 +177,7 @@
       </pane>
       <pane id="PackagesPane" />
       <pane id="Scope" />
+      <pane id="AndroidView" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -197,6 +203,12 @@
     </option>
   </component>
   <component name="RunManager" selected="Codename One.Run in Device Simulator">
+    <configuration name="Run in Device Simulator (1)" type="#com.codename1.plugin.intellij.run.CodenameOneConfigurationType" factoryName="Codename One" temporary="true">
+      <setting name="mainClass" value="UberEats.UberEats" />
+      <setting name="vmparams" value="" />
+      <setting name="workDir" value="" />
+      <setting name="debug" value="false" />
+    </configuration>
     <configuration name="Run in Device Simulator" type="#com.codename1.plugin.intellij.run.CodenameOneConfigurationType" factoryName="Codename One" temporary="true">
       <setting name="mainClass" value="UberEats.UberEats" />
       <setting name="vmparams" value="" />
@@ -290,9 +302,14 @@
       <properties />
       <listeners />
     </configuration>
+    <list size="2">
+      <item index="0" class="java.lang.String" itemvalue="Codename One.Run in Device Simulator" />
+      <item index="1" class="java.lang.String" itemvalue="Codename One.Run in Device Simulator (1)" />
+    </list>
     <recent_temporary>
-      <list size="1">
+      <list size="2">
         <item index="0" class="java.lang.String" itemvalue="Codename One.Run in Device Simulator" />
+        <item index="1" class="java.lang.String" itemvalue="Codename One.Run in Device Simulator (1)" />
       </list>
     </recent_temporary>
   </component>
@@ -311,7 +328,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1260" height="733" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -321,12 +337,12 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3275862" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3275862" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25779969" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26600984" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -349,13 +365,102 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/UberEats/SMS.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="27" column="5" lean-forward="false" selection-start-line="27" selection-start-column="5" selection-end-line="27" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/coffeerunapp2/activities.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="7" lean-forward="false" selection-start-line="3" selection-start-column="7" selection-end-line="3" selection-end-column="7" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <marker date="1548688965880" expanded="false" signature="3321:3340" ph=" { " />
+            <marker date="1548688965880" expanded="false" signature="3352:3366" ph=" }" />
+            <marker date="1548688965880" expanded="false" signature="4714:4733" ph=" { " />
+            <marker date="1548688965880" expanded="false" signature="4745:4759" ph=" }" />
+            <marker date="1548688965880" expanded="false" signature="5956:5975" ph=" { " />
+            <marker date="1548688965880" expanded="false" signature="5987:6001" ph=" }" />
+            <marker date="1548688965880" expanded="false" signature="7179:7198" ph=" { " />
+            <marker date="1548688965880" expanded="false" signature="7210:7224" ph=" }" />
+            <marker date="1548688965880" expanded="false" signature="8799:8818" ph=" { " />
+            <marker date="1548688965880" expanded="false" signature="8829:8843" ph=" }" />
+            <marker date="1548688965880" expanded="false" signature="9980:9999" ph=" { " />
+            <marker date="1548688965880" expanded="false" signature="10058:10072" ph=" }" />
+            <marker date="1548688965880" expanded="false" signature="10321:10340" ph=" { " />
+            <marker date="1548688965880" expanded="false" signature="10356:10370" ph=" }" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/UberEats/UberEats.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#7968#7976#0" expanded="true" />
+            <element signature="e#9536#9544#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/mycompany/cofferun/CoffeeRun.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="8085">
+          <caret line="539" column="0" lean-forward="true" selection-start-line="539" selection-start-column="0" selection-end-line="539" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/UberEats/SMS.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="27" column="5" lean-forward="true" selection-start-line="27" selection-start-column="5" selection-end-line="27" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/coffeerunapp2/activities.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="7" lean-forward="false" selection-start-line="3" selection-start-column="7" selection-end-line="3" selection-end-column="7" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <marker date="1548688965880" expanded="false" signature="3321:3340" ph=" { " />
+            <marker date="1548688965880" expanded="false" signature="3352:3366" ph=" }" />
+            <marker date="1548688965880" expanded="false" signature="4714:4733" ph=" { " />
+            <marker date="1548688965880" expanded="false" signature="4745:4759" ph=" }" />
+            <marker date="1548688965880" expanded="false" signature="5956:5975" ph=" { " />
+            <marker date="1548688965880" expanded="false" signature="5987:6001" ph=" }" />
+            <marker date="1548688965880" expanded="false" signature="7179:7198" ph=" { " />
+            <marker date="1548688965880" expanded="false" signature="7210:7224" ph=" }" />
+            <marker date="1548688965880" expanded="false" signature="8799:8818" ph=" { " />
+            <marker date="1548688965880" expanded="false" signature="8829:8843" ph=" }" />
+            <marker date="1548688965880" expanded="false" signature="9980:9999" ph=" { " />
+            <marker date="1548688965880" expanded="false" signature="10058:10072" ph=" }" />
+            <marker date="1548688965880" expanded="false" signature="10321:10340" ph=" { " />
+            <marker date="1548688965880" expanded="false" signature="10356:10370" ph=" }" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/UberEats/UberEats.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#9536#9544#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -410,7 +515,7 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#7968#7976#0" expanded="true" />
+            <element signature="e#9536#9544#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -465,7 +570,7 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#7968#7976#0" expanded="true" />
+            <element signature="e#9536#9544#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -520,7 +625,7 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#7968#7976#0" expanded="true" />
+            <element signature="e#9536#9544#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -541,7 +646,7 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#7968#7976#0" expanded="true" />
+            <element signature="e#9536#9544#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -576,7 +681,7 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#7968#7976#0" expanded="true" />
+            <element signature="e#9536#9544#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -621,7 +726,7 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#7968#7976#0" expanded="true" />
+            <element signature="e#9536#9544#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -666,7 +771,7 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#7968#7976#0" expanded="true" />
+            <element signature="e#9536#9544#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -711,7 +816,7 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#7968#7976#0" expanded="true" />
+            <element signature="e#9536#9544#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -722,7 +827,7 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#7968#7976#0" expanded="true" />
+            <element signature="e#9536#9544#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -733,7 +838,7 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#7968#7976#0" expanded="true" />
+            <element signature="e#9536#9544#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -744,7 +849,7 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#7968#7976#0" expanded="true" />
+            <element signature="e#9536#9544#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -755,7 +860,7 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#7968#7976#0" expanded="true" />
+            <element signature="e#9536#9544#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -798,6 +903,16 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/UberEats/SMS.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="27" column="5" lean-forward="false" selection-start-line="27" selection-start-column="5" selection-end-line="27" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/coffeerunapp2/activities.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="45">
@@ -822,20 +937,15 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/mycompany/cofferun/CoffeeRun.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="6075">
-          <caret line="537" column="33" lean-forward="false" selection-start-line="537" selection-start-column="33" selection-end-line="537" selection-end-column="33" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
+    <entry file="file://$PROJECT_DIR$/src/default.jpg">
+      <provider selected="true" editor-type-id="images">
+        <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/UberEats/SMS.java">
+    <entry file="file://$PROJECT_DIR$/src/com/mycompany/cofferun/CoffeeRun.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="27" column="5" lean-forward="true" selection-start-line="27" selection-start-column="5" selection-end-line="27" selection-end-column="5" />
+        <state relative-caret-position="9840">
+          <caret line="788" column="0" lean-forward="false" selection-start-line="788" selection-start-column="0" selection-end-line="788" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -844,11 +954,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/UberEats/UberEats.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="278">
-          <caret line="205" column="51" lean-forward="true" selection-start-line="205" selection-start-column="51" selection-end-line="205" selection-end-column="51" />
+        <state relative-caret-position="352">
+          <caret line="349" column="55" lean-forward="false" selection-start-line="349" selection-start-column="55" selection-end-line="349" selection-end-column="55" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#7968#7976#0" expanded="true" />
+            <element signature="e#9536#9544#0" expanded="true" />
           </folding>
         </state>
       </provider>

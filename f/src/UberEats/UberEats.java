@@ -13,6 +13,7 @@ import com.codename1.ui.*;
 import com.codename1.ui.events.ActionEvent;
 import com.codename1.ui.events.ActionListener;
 import com.codename1.ui.layouts.BorderLayout;
+import com.codename1.ui.layouts.GridLayout;
 import com.codename1.ui.layouts.mig.LC;
 import com.codename1.ui.layouts.mig.MigLayout;
 import com.codename1.ui.plaf.Style;
@@ -33,6 +34,7 @@ public class UberEats {
     private Form current,whole;
     private Resources theme;
     private Label img;
+    public AutoCompleteTextField slotorder, friendsnames;
 
     public void init(Object context) {
         // use two network threads instead of one
@@ -102,14 +104,14 @@ public class UberEats {
         Form letsdothis = please.alyssaform();
         letsdothis.getToolbar().hideToolbar();
         Form asiaform = new www.hales.iscool.SplashScreen();
-        Form paymentform = coffeerun.moneytransfer();
+
 
         tb.addTab("Splashscreen",FontImage.MATERIAL_WALLPAPER,4,asiaform);
-        tb.addTab("Log-In", FontImage.MATERIAL_LOCK, 4, LOL);
-        tb.addTab("Home", FontImage.MATERIAL_HOME,4,letsdothis);
+        //tb.addTab("Log-In", FontImage.MATERIAL_LOCK, 4, LOL);
+        //tb.addTab("Home", FontImage.MATERIAL_HOME,4,letsdothis);
         tb.addTab("User Profile", FontImage.MATERIAL_ACCESSIBILITY, 4, profileForm());
         tb.addTab("Make a Run", FontImage.MATERIAL_SHOPPING_CART, 4,pleasework);
-        tb.addTab("Payment",FontImage.MATERIAL_ATTACH_MONEY,4,paymentform);
+        tb.addTab("Payment",FontImage.MATERIAL_ATTACH_MONEY,4,moneytransfer());
 
         tb.getTabsContainer().setScrollableX(false);
 
@@ -117,6 +119,44 @@ public class UberEats {
         whole.show();
     }
 
+    public Form moneytransfer()
+    {
+        GridLayout moneytransferlayout = new GridLayout(3,1);
+        Form moneytransferform = new Form(moneytransferlayout);
+        Container pleasegod = new Container(moneytransferlayout);
+        friendsnames=new AutoCompleteTextField("Bob", "Jill", "Joe");
+        Button transfergo=new Button("make transfer");
+        TextField transferamount=new TextField("transfer amount");
+
+        pleasegod.add(friendsnames);
+        pleasegod.add(transferamount);
+        pleasegod.add(transfergo);
+
+
+        transfergo.addActionListener(new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent evt) {
+                System.out.println("Exchanging Money");
+                String transfermoney = new String(transferamount.getText());
+                double transfertruevalue;
+
+                try{
+                    transfertruevalue = Double.parseDouble(transfermoney);
+                    System.out.println("Double translation worked"+transfertruevalue);
+                } catch (NumberFormatException e){
+                    System.out.println("Textfield value is not a number");
+                    transfertruevalue = 0;
+                }
+                System.out.println(transfertruevalue);
+                ReadJsonExchangeMoney("https://crippin-coffee.herokuapp.com/exchangeMoney","zankner",transfertruevalue);
+            }
+        });
+        moneytransferform.add(pleasegod);
+        return(moneytransferform);
+
+
+    }
 
     public Form profileForm()
     {
@@ -274,6 +314,65 @@ public class UberEats {
         f.setBackCommand(back);
     }
 
+    public void ReadJsonAddUser(String inputUrl, String userid, String password, String firstname, String lastname, String bio)
+    {
+        ConnectionRequest req=new ConnectionRequest();
+        String newinput = inputUrl+"?userId="+userid+"&password="+password+"&userFirst="+firstname+"&userLast="+lastname+"&bio="+bio;
+
+        req.setUrl(newinput);
+
+        req.setPost(false);
+        // req.addRequestHeader("numSlots","4");
+        //req.addRequestHeader("privacy", "false");
+        // req.addRequestHeader("destination","Starbucks");
+        //string key, string value?
+        req.setHttpMethod("GET");
+        NetworkManager.getInstance().addToQueueAndWait(req);
+        JSONParser parser=new JSONParser();
+        try {
+            Hashtable result =parser.parse(new InputStreamReader(new ByteArrayInputStream(req.getResponseData())));
+            System.out.println("test"+result);
+            System.out.println(parser.parseJSON(new InputStreamReader(new ByteArrayInputStream(req.getResponseData()))));
+            Map response=parser.parseJSON(new InputStreamReader(new ByteArrayInputStream(req.getResponseData())));
+            System.out.println( "hope"+response.get("result"));
+
+
+            LinkedHashMap allItems = new LinkedHashMap();
+            allItems=(LinkedHashMap)response.get("result");
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    public void ReadJsonExchangeMoney(String inputUrl, String userid, Double value)
+    {
+        ConnectionRequest req=new ConnectionRequest();
+        String newinput = inputUrl+"?userId="+userid+"&dinero="+value;
+        req.setUrl(newinput);
+
+        req.setPost(false);
+        // req.addRequestHeader("numSlots","4");
+        //req.addRequestHeader("privacy", "false");
+        // req.addRequestHeader("destination","Starbucks");
+        //string key, string value?
+        req.setHttpMethod("GET");
+        NetworkManager.getInstance().addToQueueAndWait(req);
+        JSONParser parser=new JSONParser();
+        try {
+            Hashtable result =parser.parse(new InputStreamReader(new ByteArrayInputStream(req.getResponseData())));
+            System.out.println("test"+result);
+            System.out.println(parser.parseJSON(new InputStreamReader(new ByteArrayInputStream(req.getResponseData()))));
+            Map response=parser.parseJSON(new InputStreamReader(new ByteArrayInputStream(req.getResponseData())));
+            System.out.println( "hope"+response.get("result"));
+
+
+            LinkedHashMap allItems = new LinkedHashMap();
+            allItems=(LinkedHashMap)response.get("result");
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
     public void ReadJsonEditProfile(String inputUrl, String userid, String firstname, String lastname, String bio, String grade, String sex, String dorm) {
         ConnectionRequest req=new ConnectionRequest();
         String newinput = inputUrl+"?userId="+userid+"&userFirst="+firstname+"&userLast="+lastname+"&bio="+bio+"&grade="+grade+"&sex="+sex+"&dorm="+dorm;

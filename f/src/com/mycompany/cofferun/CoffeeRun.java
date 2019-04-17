@@ -525,15 +525,15 @@ public class CoffeeRun {
 
     public Form moneytransfer()
     {
-        moneytransferform = new Form("Transfer Money", new GridLayout(3,1));
-        friendsnames=new AutoCompleteTextField("Bob", "Jill", "Joe");
-        transfergo=new Button("make transfer");
-        transferamount=new TextField("transfer amount");
+        Form moneytransferform = new Form("Transfer Money", new GridLayout(3,1));
+        AutoCompleteTextField friendsnames=new AutoCompleteTextField("Bob", "Jill", "Joe");
+        Button transfergo=new Button("make transfer");
+        TextField transferamount=new TextField("transfer amount");
         moneytransferform.addComponent(friendsnames);
         moneytransferform.addComponent(transferamount);
         moneytransferform.addComponent(transfergo);
 
-        setBackCommand(moneytransferform, hi);
+
 
         moneytransferform.show();
 
@@ -545,7 +545,7 @@ public class CoffeeRun {
 
                 double transferdouble = Double.valueOf(transferamount.getText());
 
-                addtobalance(transferdouble, 1);
+                //addtobalance(transferdouble, 1);
 
 
                 //HERE IS THE WIKIPEDIA
