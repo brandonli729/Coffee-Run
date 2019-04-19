@@ -108,7 +108,7 @@ public class UberEats {
         tb.addTab("Log-in Form",FontImage.MATERIAL_HOME,4,loginform());
         tb.addTab("Splashscreen",FontImage.MATERIAL_WALLPAPER,4,asiaform);
         //tb.addTab("Log-In", FontImage.MATERIAL_LOCK, 4, LOL);
-        //tb.addTab("Home", FontImage.MATERIAL_HOME,4,letsdothis);
+        tb.addTab("Home", FontImage.MATERIAL_HOME,4,letsdothis);
         tb.addTab("User Profile", FontImage.MATERIAL_ACCESSIBILITY, 4, profileForm());
         tb.addTab("Make a Run", FontImage.MATERIAL_SHOPPING_CART, 4,pleasework);
         tb.addTab("Payment",FontImage.MATERIAL_ATTACH_MONEY,4,moneytransfer());

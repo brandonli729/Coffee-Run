@@ -6,13 +6,13 @@ import java.util.ArrayList;
  * Created by lyndseymugford on 11/28/18.
  */
 public class Run {
-    public int ID, slots;
-    public String restaurant;
+    public int slots;
+    public String restaurant, ID;
     public boolean charge, open;
     public ArrayList<runslot> slotlist;
 
 
-    public Run(int count, int slotsj, boolean chargej, boolean openj, String restaurantj)
+    public Run(String count, int slotsj, boolean chargej, boolean openj, String restaurantj)
     {
         ID=count;
         slots=slotsj;
@@ -30,8 +30,8 @@ public class Run {
     public void FillSlot(int kj, String namem, String orderm, double costm)
     {
 
-            runslot slotk = new runslot (kj,namem, orderm, costm);
-            slotlist.add(slotk);
+        runslot slotk = new runslot (kj,namem, orderm, costm);
+        slotlist.add(slotk);
 
     }
 }
