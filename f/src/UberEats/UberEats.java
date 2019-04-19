@@ -105,7 +105,7 @@ public class UberEats {
         letsdothis.getToolbar().hideToolbar();
         Form asiaform = new www.hales.iscool.SplashScreen();
 
-
+        tb.addTab("Log-in Form",FontImage.MATERIAL_HOME,4,loginform());
         tb.addTab("Splashscreen",FontImage.MATERIAL_WALLPAPER,4,asiaform);
         //tb.addTab("Log-In", FontImage.MATERIAL_LOCK, 4, LOL);
         //tb.addTab("Home", FontImage.MATERIAL_HOME,4,letsdothis);
@@ -119,6 +119,97 @@ public class UberEats {
         whole.show();
     }
 
+    public Form loginform()
+    {
+        GridLayout loginlayout = new GridLayout(4,1);
+        Form logmein = new Form();
+        Container pleasework = new Container(loginlayout);
+        TextField username = new TextField("","Username");
+        TextField password = new TextField("","Password");
+        Button signin = new Button("Sign In");
+        Button createprofile = new Button ("Don't have an account?");
+
+
+        Button editimagebutton = new Button("Add Profile Picture");
+        editimagebutton.addActionListener(new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent evt) {
+
+                //SMS textAsia = new SMS();
+                //textAsia.sendmessage("8573893527","Hi stooopid");
+
+                System.out.println("Setting Image");
+            }
+        });
+
+        Form createform = new Form("Create Profile",BoxLayout.y());
+        TableLayout editlayout = new TableLayout(10,1);
+        editlayout.setGrowHorizontally(true);
+
+        createform.add(new ScaleImageLabel(defaultpic));
+        createform.add(editimagebutton);
+        Container infocont = new Container(editlayout);
+
+
+        TextField nametext = new TextField("", "Name", 20, TextArea.ANY);
+        TextField usernametext = new TextField("","Username",20,TextArea.ANY);
+        TextField passwordtext = new TextField("","Password",30,TextArea.ANY);
+
+        TextField biotext = new TextField("", "Biography", 40, TextArea.ANY);
+        TextField dormtext = new TextField("", "Dorm", 20, TextArea.ANY);
+        TextField gradetext = new TextField("", "Grade", 20, TextArea.ANY);
+        TextField sextext = new TextField("", "Sex", 20, TextArea.ANY);
+
+        Button savebutton = new Button("Create Profile");
+        savebutton.addActionListener(new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent evt) {
+                System.out.println("Save Profile");
+                /*ArrayList<String> namestring = new ArrayList<String>();
+                StringTokenizer tokenizer = new StringTokenizer(nametext.getText());
+                while(tokenizer.hasMoreTokens()) {
+                    namestring.add(tokenizer.nextToken());
+
+                }
+                System.out.println("First Name:"+namestring.get(0));
+                System.out.println("Last Name:"+namestring.get(1));
+                ReadJsonEditProfile("https://crippin-coffee.herokuapp.com/editUser","zankner",namestring.get(0),namestring.get(1),biotext.getText(),gradetext.getText(),sextext.getText(),dormtext.getText());
+            */}
+        });
+        TableLayout.Constraint cn = editlayout.createConstraint();
+        cn.setHorizontalAlign(Component.RIGHT);
+
+        infocont.add("Name").add(nametext).add("Username").add(usernametext).add("Password").add(passwordtext).add("Biography").add(biotext)
+                .add("Dorm").add(dormtext).add("Grade").add(gradetext)
+                .add("Sex").add(sextext).add(cn,savebutton);
+
+
+        createform.add(infocont);
+
+        createprofile.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent evt) {
+                System.out.println("Creating Profile");
+                createform.show();
+                setBackCommand(createform);
+            }
+        });
+
+
+
+
+        pleasework.add(username);
+        pleasework.add(password);
+        pleasework.add(signin);
+        pleasework.add(createprofile);
+
+        logmein.add(pleasework);
+
+        return(logmein);
+
+    }
     public Form moneytransfer()
     {
         GridLayout moneytransferlayout = new GridLayout(3,1);
@@ -140,16 +231,19 @@ public class UberEats {
                 System.out.println("Exchanging Money");
                 String transfermoney = new String(transferamount.getText());
                 double transfertruevalue;
+                double transfernegativevalue;
 
                 try{
                     transfertruevalue = Double.parseDouble(transfermoney);
+                    transfernegativevalue = transfertruevalue * -1;
                     System.out.println("Double translation worked"+transfertruevalue);
                 } catch (NumberFormatException e){
                     System.out.println("Textfield value is not a number");
                     transfertruevalue = 0;
+                    transfernegativevalue = 0;
                 }
                 System.out.println(transfertruevalue);
-                ReadJsonExchangeMoney("https://crippin-coffee.herokuapp.com/exchangeMoney","zankner",transfertruevalue);
+                ReadJsonExchangeMoney("https://crippin-coffee.herokuapp.com/exchangeMoney","zankner",transfernegativevalue);
             }
         });
         moneytransferform.add(pleasegod);
