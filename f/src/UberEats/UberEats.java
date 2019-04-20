@@ -106,7 +106,7 @@ public class UberEats {
         Form asiaform = new www.hales.iscool.SplashScreen();
 
         tb.addTab("Log-in Form",FontImage.MATERIAL_HOME,4,loginform());
-        tb.addTab("Splashscreen",FontImage.MATERIAL_WALLPAPER,4,asiaform);
+        //tb.addTab("Splashscreen",FontImage.MATERIAL_WALLPAPER,4,asiaform);
         //tb.addTab("Log-In", FontImage.MATERIAL_LOCK, 4, LOL);
         tb.addTab("Home", FontImage.MATERIAL_HOME,4,letsdothis);
         tb.addTab("User Profile", FontImage.MATERIAL_ACCESSIBILITY, 4, profileForm());
@@ -140,6 +140,7 @@ public class UberEats {
                 //textAsia.sendmessage("8573893527","Hi stooopid");
 
                 System.out.println("Setting Image");
+                System.out.println("just a change");
             }
         });
 
