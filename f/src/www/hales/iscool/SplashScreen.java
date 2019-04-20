@@ -17,7 +17,7 @@ public class SplashScreen extends Form {
         try {
             this.getUnselectedStyle().setBgImage(Image.createImage("/coffee.JPG"));
             //this.add(Image.createImage("/coffee.png"));
-            this.add(new InfiniteProgress());
+            this.add(new InfiniteProgress());//
 
         } catch (IOException e) {
             e.printStackTrace();
