@@ -1,77 +1,28 @@
 package com.mycompany.cofferun;
 
-import com.codename1.io.Log;
 import com.codename1.ui.Button;
 import com.codename1.ui.Display;
 import com.codename1.ui.FontImage;
 import com.codename1.ui.Form;
 import com.codename1.ui.Dialog;
 import com.codename1.ui.Label;
-import com.codename1.ui.animations.CommonTransitions;
 import com.codename1.ui.layouts.BorderLayout;
-import com.codename1.ui.layouts.BoxLayout;
-import com.codename1.ui.layouts.FlowLayout;
-import com.codename1.ui.layouts.LayeredLayout;
 import com.codename1.ui.plaf.UIManager;
 import com.codename1.ui.util.Resources;
-import com.codename1.ui.util.UITimer;
+
 import java.io.IOException;
 import com.codename1.ui.Toolbar;
-import com.codename1.ui.Button;
-import com.codename1.ui.Display;
-import com.codename1.ui.Form;
-import com.codename1.ui.Dialog;
-import com.codename1.ui.Label;
 import com.codename1.ui.Image;
-import com.codename1.ui.layouts.BorderLayout;
-import com.codename1.ui.plaf.UIManager;
-import com.codename1.ui.util.Resources;
-import com.codename1.ui.Toolbar;
-import java.io.IOException;
 
 
-import static com.codename1.ui.CN.*;
-import com.codename1.components.InteractionDialog;
-import com.codename1.components.ToastBar;
 //import com.codename1.googlemaps.MapContainer;
-import com.codename1.location.Location;
-import com.codename1.location.LocationListener;
-import com.codename1.location.LocationManager;
-import com.codename1.maps.Coord;
 import com.codename1.ui.*;
 import com.codename1.ui.events.ActionEvent;
-import com.codename1.ui.geom.Rectangle;
-import com.codename1.ui.layouts.BorderLayout;
-import com.codename1.ui.layouts.FlowLayout;
-import com.codename1.ui.layouts.LayeredLayout;
-import com.codename1.ui.plaf.Style;
-import com.codename1.ui.plaf.UIManager;
-import com.codename1.ui.util.Resources;
-import com.codename1.io.Log;
-
-import java.io.IOException;
-import com.codename1.ui.layouts.BoxLayout;
-
-import com.codename1.io.*;
-import com.codename1.ui.*;
-import com.codename1.ui.layouts.*;
-import com.codename1.ui.plaf.UIManager;
-import com.codename1.ui.util.Resources;
 
 import java.io.ByteArrayInputStream;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.util.*;
-import java.io.ByteArrayInputStream;
-import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.*;
 
-import com.codename1.xml.Element;
-import com.codename1.xml.XMLParser;
-
-import com.codename1.ui.*;
-import com.codename1.ui.events.ActionEvent;
 import com.codename1.ui.events.ActionListener;
 
 import com.codename1.ui.layouts.GridLayout;
@@ -83,76 +34,16 @@ import java.util.Map;
 import com.codename1.ui.Container;
 import com.codename1.ui.TextField;
 
-
-import java.util.*;
-
-import com.codename1.ui.*;
-import com.codename1.ui.events.ActionEvent;
-import com.codename1.ui.events.ActionListener;
-import com.codename1.ui.layouts.*;
-import com.codename1.ui.plaf.UIManager;
-import com.codename1.ui.util.Resources;
-
-import com.codename1.io.Log;
-import com.codename1.ui.Display;
-import com.codename1.ui.Form;
-import com.codename1.ui.Label;
-import com.codename1.ui.events.ActionEvent;
-import com.codename1.ui.events.ActionListener;
-import com.codename1.ui.plaf.UIManager;
-import com.codename1.ui.util.Resources;
 
 import com.codename1.io.ConnectionRequest;
 import com.codename1.io.JSONParser;
 import com.codename1.io.NetworkManager;
-import com.codename1.l10n.SimpleDateFormat;
-import com.codename1.ui.*;
-import com.codename1.ui.layouts.BorderLayout;
-import com.codename1.ui.layouts.BoxLayout;
-import com.codename1.ui.layouts.GridLayout;
-import com.codename1.ui.plaf.Style;
-import com.codename1.ui.plaf.UIManager;
 
-import java.io.ByteArrayInputStream;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.StringReader;
-import java.util.ArrayList;
-import java.util.Date;
 import java.util.LinkedHashMap;
-import java.util.Map;
 
 
-import com.codename1.facebook.FaceBookAccess;
-import com.codename1.io.*;
-
-import com.codename1.social.Login;
-import com.codename1.ui.*;
-import com.codename1.ui.Button;
-import com.codename1.ui.Container;
-import com.codename1.ui.Dialog;
 import com.codename1.ui.Graphics;
-import com.codename1.ui.Image;
-import com.codename1.ui.Label;
-import com.codename1.ui.List;
-import com.codename1.ui.TextField;
-import com.codename1.ui.layouts.*;
-import com.codename1.ui.layouts.BorderLayout;
-import com.codename1.ui.plaf.UIManager;
-import com.codename1.ui.util.Resources;
-import com.codename1.ui.events.ActionEvent;
-import com.codename1.ui.events.ActionListener;
 
-
-
-import java.io.ByteArrayInputStream;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.util.*;
-
-import com.codename1.xml.Element;
-import com.codename1.xml.XMLParser;
-import java.io.IOException;
 
 import coffeerunapp2.activities;
 
@@ -218,10 +109,9 @@ public class CoffeeRun {
         wellthen.show();
     }
 
+
     public Form forgodsake(){
         hi = new Form( new BorderLayout());
-
-
 
         try {
 
@@ -401,20 +291,27 @@ public class CoffeeRun {
 
     }
 
-    protected void setBackCommand(Form f, Form k) {
+    protected void setBackCommand(Form f) {
         Command back = new Command("") {
 
             @Override
-            public void actionPerformed(ActionEvent evt) {k.showBack();
-            }
+            public void actionPerformed(ActionEvent evt) {
+                forgodsake().showBack();
+                System.out.println("BACK BUTTON");
 
+            }
         };
         Image img = FontImage.createMaterial(FontImage.MATERIAL_ARROW_BACK, UIManager.getInstance().getComponentStyle("TitleCommand"));
         back.setIcon(img);
         f.getToolbar().addCommandToLeftBar(back);
         f.getToolbar().setTitleCentered(true);
-        f.setBackCommand(back);
+        f.setBackCommand(
+                f.getToolbar().addCommandToLeftBar("", null, (e) ->
+                        f.showBack()));
     }
+
+
+
     public void chat()
     {
         //download bouncycastle and pubnub libraries
@@ -490,7 +387,11 @@ public class CoffeeRun {
 
         chatform.addComponent (BorderLayout.SOUTH,mytext);
         chatform.addComponent (BorderLayout.CENTER,chatcontainer);
-        setBackCommand(chatform, hi);
+
+        setBackCommand(chatform);
+
+
+
 
         chatform.show();
 
@@ -619,7 +520,7 @@ public class CoffeeRun {
         moneytransferform.addComponent(transferamount);
         moneytransferform.addComponent(transfergo);
 
-        setBackCommand(moneytransferform, hi);
+        setBackCommand(moneytransferform);
 
         moneytransferform.show();
 
@@ -678,7 +579,7 @@ public class CoffeeRun {
         else{
             Makerunmaker(currentrun);
             runmaker.show();
-            setBackCommand(runmaker,personalizerun);
+            setBackCommand(runmaker);
         }
 
 
@@ -780,7 +681,7 @@ public class CoffeeRun {
                 //  ReadJsonGetRuns("https://crippin-coffee.herokuapp.com/getDocked");
                 Makerunmaker(currentrun);
                 runmaker.show();
-                setBackCommand(runmaker,personalizerun);
+                setBackCommand(runmaker);
 
             }
 
@@ -788,7 +689,7 @@ public class CoffeeRun {
 
 
         personalizerun.show();
-        setBackCommand(personalizerun, hi);
+        setBackCommand(personalizerun);
 
 
     }
@@ -971,6 +872,8 @@ public class CoffeeRun {
         }
         System.out.println("");
     }
+
+
 
 
     public void destroy() {

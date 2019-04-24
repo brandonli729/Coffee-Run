@@ -411,7 +411,10 @@ public class UberEats {
         back.setIcon(img);
         f.getToolbar().addCommandToLeftBar(back);
         f.getToolbar().setTitleCentered(true);
-        f.setBackCommand(back);
+        //f.setBackCommand(back);
+        f.setBackCommand(
+                f.getToolbar().addCommandToLeftBar("", null, (e) ->
+                        f.showBack()));
     }
 
     public void ReadJsonAddUser(String inputUrl, String userid, String password, String firstname, String lastname, String bio)
