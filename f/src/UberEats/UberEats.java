@@ -127,6 +127,7 @@ public class UberEats {
         TextField username = new TextField("","Username");
         TextField password = new TextField("","Password");
         Button signin = new Button("Sign In");
+
         Button createprofile = new Button ("Don't have an account?");
 
 
@@ -139,7 +140,6 @@ public class UberEats {
                 //SMS textAsia = new SMS();
                 //textAsia.sendmessage("8573893527","Hi stooopid");
 
-                System.out.println("Setting Image");
                 System.out.println("just a change");
             }
         });
@@ -156,11 +156,10 @@ public class UberEats {
         TextField nametext = new TextField("", "Name", 20, TextArea.ANY);
         TextField usernametext = new TextField("","Username",20,TextArea.ANY);
         TextField passwordtext = new TextField("","Password",30,TextArea.ANY);
+        passwordtext.setConstraint(TextField.PASSWORD);
 
         TextField biotext = new TextField("", "Biography", 40, TextArea.ANY);
-        TextField dormtext = new TextField("", "Dorm", 20, TextArea.ANY);
-        TextField gradetext = new TextField("", "Grade", 20, TextArea.ANY);
-        TextField sextext = new TextField("", "Sex", 20, TextArea.ANY);
+        
 
         Button savebutton = new Button("Create Profile");
         savebutton.addActionListener(new ActionListener() {
@@ -168,23 +167,32 @@ public class UberEats {
             @Override
             public void actionPerformed(ActionEvent evt) {
                 System.out.println("Save Profile");
-                /*ArrayList<String> namestring = new ArrayList<String>();
-                StringTokenizer tokenizer = new StringTokenizer(nametext.getText());
-                while(tokenizer.hasMoreTokens()) {
-                    namestring.add(tokenizer.nextToken());
+                try {
+                    ArrayList<String> namestring = new ArrayList<String>();
+                    StringTokenizer tokenizer = new StringTokenizer(nametext.getText());
+                    while (tokenizer.hasMoreTokens()) {
+                        namestring.add(tokenizer.nextToken());
+
+                    }
+                    System.out.println("First Name:" + namestring.get(0));
+                    System.out.println("Last Name:" + namestring.get(1));
+
+                    ReadJsonAddUser("https://crippin-coffee.herokuapp.com/addUser", usernametext.getText(), passwordtext.getText(), namestring.get(0), namestring.get(1), biotext.getText());
+
+                } catch(Exception e){
+                    System.out.println("All Fields aren't filled out");
+
 
                 }
-                System.out.println("First Name:"+namestring.get(0));
-                System.out.println("Last Name:"+namestring.get(1));
-                ReadJsonEditProfile("https://crippin-coffee.herokuapp.com/editUser","zankner",namestring.get(0),namestring.get(1),biotext.getText(),gradetext.getText(),sextext.getText(),dormtext.getText());
-            */}
+
+                whole.showBack();
+            }
         });
         TableLayout.Constraint cn = editlayout.createConstraint();
         cn.setHorizontalAlign(Component.RIGHT);
 
         infocont.add("Name").add(nametext).add("Username").add(usernametext).add("Password").add(passwordtext).add("Biography").add(biotext)
-                .add("Dorm").add(dormtext).add("Grade").add(gradetext)
-                .add("Sex").add(sextext).add(cn,savebutton);
+                .add(cn,savebutton);
 
 
         createform.add(infocont);
@@ -197,9 +205,6 @@ public class UberEats {
                 setBackCommand(createform);
             }
         });
-
-
-
 
         pleasework.add(username);
         pleasework.add(password);
